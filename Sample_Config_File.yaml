@@ -1,0 +1,54 @@
+# ETL Configuration
+
+# Define Social Media APIs
+social_media_apis:
+  - name: Twitter
+    api_key: YOUR_TWITTER_API_KEY
+    api_secret_key: YOUR_TWITTER_API_SECRET_KEY
+    access_token: YOUR_TWITTER_ACCESS_TOKEN
+    access_token_secret: YOUR_TWITTER_ACCESS_TOKEN_SECRET
+
+  - name: Facebook
+    app_id: YOUR_FACEBOOK_APP_ID
+    app_secret: YOUR_FACEBOOK_APP_SECRET
+    access_token: YOUR_FACEBOOK_ACCESS_TOKEN
+
+  - name: Instagram
+    client_id: YOUR_INSTAGRAM_CLIENT_ID
+    client_secret: YOUR_INSTAGRAM_CLIENT_SECRET
+    access_token: YOUR_INSTAGRAM_ACCESS_TOKEN
+
+# Define AWS Credentials
+aws_credentials:
+  access_key_id: YOUR_AWS_ACCESS_KEY_ID
+  secret_access_key: YOUR_AWS_SECRET_ACCESS_KEY
+
+# Define IICS Connection Details
+iics_connection:
+  username: YOUR_IICS_USERNAME
+  password: YOUR_IICS_PASSWORD
+  base_url: https://your-iics-instance-url
+
+# Define AWS S3 Staging Bucket
+aws_s3_bucket:
+  name: your-etl-staging-bucket
+  region: your-aws-region
+
+# Define AWS Redshift Database Details
+aws_redshift_db:
+  host: your-redshift-host
+  port: your-redshift-port
+  database: your-redshift-database
+  user: your-redshift-username
+  password: your-redshift-password
+
+# Define DAG Execution Schedule
+dag_schedule:
+  full_load: "0 0 * * *"
+  incremental_load: "0 1 * * *"
+
+# Define Metabase Dashboard Link
+metabase_dashboard_link: http://your-metabase-instance-url/public/dashboard/your-dashboard-id
+
+# Define Email Address for Questions
+contact_email: your.email@example.com
