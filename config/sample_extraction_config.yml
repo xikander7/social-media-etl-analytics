@@ -1,0 +1,104 @@
+# Sample Extraction Configuration for Social Media ETL
+# This file demonstrates how to configure data extraction from different platforms
+
+# Twitter Configuration
+twitter:
+  # Search queries to extract tweets
+  search_queries:
+    - "data engineering"
+    - "machine learning"
+    - "social media analytics"
+    - "ETL pipeline"
+  
+  # Specific user timelines to extract
+  users:
+    - "elonmusk"
+    - "sundarpichai" 
+    - "satyanadella"
+    - "microsoft"
+    - "google"
+  
+  # Extraction parameters
+  max_results: 100          # Maximum tweets per search query
+  user_max_results: 50      # Maximum tweets per user timeline
+  days_back: 7              # Look back period in days
+  extract_trends: true      # Whether to extract trending topics
+  
+  # Rate limiting and retry settings
+  retry_count: 3
+  retry_delay: 60           # seconds between retries
+
+# Facebook Configuration  
+facebook:
+  # Facebook page IDs to extract posts from
+  page_ids:
+    - "facebook"            # Facebook's official page
+    - "microsoft"           # Microsoft's official page
+    - "google"              # Google's official page
+    - "tesla"               # Tesla's official page
+  
+  # Page IDs for insights extraction (requires appropriate permissions)
+  insights_page_ids:
+    - "your-page-id-here"   # Replace with actual page IDs you have access to
+  
+  # Extraction parameters
+  posts_limit: 50           # Maximum posts per page
+  days_back: 7              # Look back period in days
+  
+  # Search queries for finding new pages
+  search_queries:
+    - "technology"
+    - "artificial intelligence"
+    - "data science"
+  
+  search_limit: 25          # Maximum pages per search query
+  
+  # Insights metrics to extract
+  insights_metrics:
+    - "page_fans"
+    - "page_impressions"
+    - "page_engagements"
+    - "page_posts_impressions"
+
+# Instagram Configuration (requires Instagram Basic Display API)
+instagram:
+  # User IDs to extract media from (requires user tokens)
+  user_ids:
+    - "your-user-id-here"   # Replace with actual user IDs
+  
+  # Media extraction parameters
+  media_limit: 50           # Maximum media items per user
+  include_insights: false   # Whether to include media insights (requires business account)
+
+# General Extraction Settings
+general:
+  # File format for saving raw data
+  output_format: "json"     # Options: json, csv, parquet
+  
+  # Data validation settings
+  validate_schema: true     # Whether to validate extracted data schema
+  skip_empty_responses: true # Whether to skip empty API responses
+  
+  # Performance settings
+  parallel_extraction: true # Whether to extract from multiple platforms in parallel
+  max_workers: 3            # Maximum number of parallel workers
+  
+  # Data retention
+  archive_raw_data: true    # Whether to archive raw data files
+  retention_days: 30        # How long to keep raw data files
+
+# Quality Control Settings
+quality_control:
+  # Minimum data requirements
+  min_records_per_dataset: 1     # Minimum records required per dataset
+  max_empty_fields_ratio: 0.5    # Maximum ratio of empty fields allowed
+  
+  # Data validation rules
+  required_fields:
+    twitter_tweets: ["tweet_id", "text", "created_at"]
+    facebook_posts: ["post_id", "message", "created_time"]
+  
+  # Content filtering
+  filter_duplicates: true        # Remove duplicate posts/tweets
+  filter_by_language: false      # Filter by specific languages
+  allowed_languages: ["en"]      # Languages to include if filtering enabled

@@ -1,0 +1,76 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# AWS credentials
+.aws/
+aws-credentials.txt
+
+# API keys and secrets
+config/secrets.yml
+config/api_keys.yml
+*.secret
+*.key
+
+# Database files
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Data files
+data/raw/*.csv
+data/raw/*.json
+data/raw/*.parquet
+data/processed/*.csv
+data/processed/*.json
+data/processed/*.parquet
+data/staging/*.csv
+data/staging/*.json
+
+# Model files
+models/*.pkl
+models/*.joblib
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Airflow
+airflow.cfg
+webserver_config.py
+airflow.db
+logs/
+plugins/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Reports (keep structure but ignore generated files)
+reports/figures/*.png
+reports/*.pdf
+reports/*.html
